@@ -6,9 +6,11 @@ var app = {
             var l = employees.length;
             var e;
             $('.employee-list').empty();
+            var html = $('#employee-li-tpl').html();
             for (var i=0; i<l; i++) {
                 e = employees[i];
-                $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
+                employee_list = html.replace(':id',e.id).replace(':firstName',e.firstName).replace(':lastName',e.lastName).replace(':title',e.title);
+                $('.employee-list').append(employee_list);
             }
         });
     },
@@ -21,13 +23,33 @@ var app = {
 	    }
 	},    
 
+	renderHomeView: function() {
+	    var html =  $('#home-tpl').html();
+	            
+	    $('body').append(html);
+	    $('.search-key').on('keyup', $.proxy(this.findByName, this));
+	},
+
+	initialize: function() {
+	    var self = this;
+	    this.store = new LocalStorageStore(function() {
+	        self.renderHomeView();
+	    });
+	}		
+	
+	/* 
+	
+	remove because Setting Up a Single Page Application
+	
+	alert example
+	
 	initialize: function() {
 	    var self = this;
 	    this.store = new LocalStorageStore(function() {
 	        self.showAlert('Store Initialized', 'Info');
 	    });
 	    $('.search-key').on('keyup', $.proxy(this.findByName, this));
-	}
+	}*/
 
 	/*original function
     initialize: function() {
