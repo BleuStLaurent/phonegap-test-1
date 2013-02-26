@@ -13,7 +13,7 @@ var HomeView = function(store) {
             $('.employee-list').empty();
             for (var i=0; i<l; i++) {
                 e = employees[i];
-                employee_list = HomeView['employee-li-tpl'].replace(':id',e.id).replace(':firstName',e.firstName).replace(':lastName',e.lastName).replace(':title',e.title);
+                employee_list = HomeView['employee-li-tpl'].replace(/:id/g,e.id).replace(/:firstName/g,e.firstName).replace(/:lastName/g,e.lastName).replace(/:title/g,e.title);
                 $('.employee-list').append(employee_list);
             }
         });
