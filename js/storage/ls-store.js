@@ -4,7 +4,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
         var employees = JSON.parse(window.localStorage.getItem("employees"));
         var results = employees.filter(function(element) {
             var fullName = element.firstName + " " + element.lastName;
-            return fullName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
+            return searchKey!="" && fullName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
         });
         callLater(callback, results);
     }
