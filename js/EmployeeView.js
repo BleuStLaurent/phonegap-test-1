@@ -28,10 +28,10 @@ var EmployeeView = function(e) {
 	        return;
 	    }
 	    var contact = navigator.contacts.create();
-	    contact.name = {givenName: employee.firstName, familyName: employee.lastName};
+	    contact.name = {givenName: e.firstName, familyName: e.lastName};
 	    var phoneNumbers = [];
-	    phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
-	    phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
+	    phoneNumbers[0] = new ContactField('work', e.officePhone, false);
+	    phoneNumbers[1] = new ContactField('mobile', e.cellPhone, true); // preferred number
 	    contact.phoneNumbers = phoneNumbers;
 	    contact.save();
 	    return false;
