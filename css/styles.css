@@ -229,8 +229,8 @@ li>a.tappable-active {
     -webkit-transition-duration: .375s;
     -o-transition-duration: .375s;
 */    
-    -moz-transition-duration: 1s;
-    -webkit-transition-duration: 1s;
-    -o-transition-duration: 1s;
+    -moz-transition-duration: 2s;
+    -webkit-transition-duration: 2s;
+    -o-transition-duration: 2s;
     
 }
